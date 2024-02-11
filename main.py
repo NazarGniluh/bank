@@ -1,10 +1,31 @@
-import requests
-import json
 
-val = input("ЯКА ВАЛЮТА?")
-date = input("ЯКА ДАТА")
-a = requests.get(f"https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?valcode={val}&date={date}&json")
+import sys
+from PyQt5.QtWidgets import (
+QApplication, QWidget, QVBoxLayout, QCalendarWidget)
 
-if a.status_code == 200:
-    data = json.loads(a.text)
-    print(data[0]["txt"], data[0]["rate"])
+class CalendarApp(QWidget):
+    def __init__(self):
+        super().__init__()
+        self.init_ui()
+
+    def init_ui(self):
+        self.setWindowTitle('Календар')
+        self.setGeometry(100, 200, 300, 300)
+
+        self.calendar = QCalendarWidget()
+        self.calendar.setGridVisible(True)
+
+        layout = QVBoxLayout()
+        layout.addWidget(self.calendar)
+        self.setLayout(layout)
+
+if __name__ == '__main__':
+    app = QApplication(sys.argv)
+    calendar_app = CalendarApp()
+    calendar_app.show()
+    sys.exit(app.exec_())
+
+
+
+
+
