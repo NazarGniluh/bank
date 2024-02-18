@@ -10,8 +10,7 @@ class CalendarApp(QWidget):
 
     def init_ui(self):
         self.setWindowTitle('Календар')
-        self.setGeometry(100, 200, 300, 300)
-
+      
         self.calendar = QCalendarWidget()
         self.calendar.setGridVisible(True)
 
