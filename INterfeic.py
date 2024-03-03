@@ -10,7 +10,7 @@ class MusicPlayer(QWidget):
         self.init_ui()
 
     def init_ui(self):
-        self.setWindowTitle('Музичний програвач')
+        self.setWindowTitle('Мультирлеєр')
         self.setGeometry(100, 100, 300, 200)
 
         self.player = QMediaPlayer()

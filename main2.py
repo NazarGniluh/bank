@@ -1,4 +1,7 @@
 from PyQt5.QtWidgets import *
+
+import Kalendar
+import Multiplayer
 import main
 import INterfeic
 app = QApplication([])
@@ -22,7 +25,7 @@ mainLine = QVBoxLayout()
 LOn = QHBoxLayout()
 Non = QHBoxLayout()
 window = QWidget()
-window.resize(200, 200)
+window.resize(100, 200)
 
 Open_Kalendar = QPushButton("КАЛЕНДАР")
 Open_Multiplayer = QPushButton("МУЛЬТИПЛЕЄР")
@@ -32,6 +35,8 @@ mainLine.addWidget(text)
 LOn.addWidget(Open_Kalendar)
 LOn.addWidget(Open_Multiplayer)
 
+Open_Multiplayer.clicked.connect(Multiplayer.multi)
+Open_Kalendar.clicked.connect(Kalendar.kalen)
 mainLine.addLayout(LOn)
 
 
