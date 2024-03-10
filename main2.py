@@ -5,21 +5,32 @@ import Multiplayer
 import main
 import INterfeic
 app = QApplication([])
-app.setStyleSheet("""
-            QWidget {
-                background: #0085A6;
-            }
+app.setStyleSheet(
+    """
+    QPushButton:hover {
+        background-color:yellow;
+    }
+    QWidget {
+        background:rgb(255, 223, 0);
+    }
+
+    QPushButton
+    {
+        background-color: rgba(248, 252, 118, 0.8);
+
+        font-size: 25px;a
+        color: black;
+        border-style: solid;
+        border-width: 3px;
+        border-color: khaki;
+        border-radius: 10px;
 
 
-            QPushButton
-            {
-                background-color: #004758;
-                border-style: outset;
-                font-family: Roboto;
 
-            }
 
-        """)
+    }
+
+    """)
 
 mainLine = QVBoxLayout()
 LOn = QHBoxLayout()
@@ -28,9 +39,12 @@ window = QWidget()
 window.resize(100, 200)
 
 Open_Kalendar = QPushButton("КАЛЕНДАР")
-Open_Multiplayer = QPushButton("МУЛЬТИПЛЕЄР")
-text = QLabel("ДОБРИЙ ДЕНЬ, ВИ ВІЙШЛИ В ЛАУНЧЕР!! НАЖМІТЬ НА КНОПКУ ЯКУ ПОДАНО ВНИЗУ")
+
+Open_Multiplayer = QPushButton("МЕДІЯПЛЕЄР")
+text = QLabel("ДОБРИЙ ДЕНЬ, ВИ ВІЙШЛИ В ЛАУНЧЕР! НАЖМІТЬ КНОПКУ ЯКУ ПОДАНО НИЖЧЕ")
+
 mainLine.addWidget(text)
+
 
 LOn.addWidget(Open_Kalendar)
 LOn.addWidget(Open_Multiplayer)

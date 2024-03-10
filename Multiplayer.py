@@ -6,64 +6,55 @@ from INterfeic import MusicPlayer
 
 
 def multi():
-    multipla = QDialog()
-
-    multipla.setWindowTitle('Мультиплеєр')
-    multipla.setGeometry(100, 100, 300, 200)
-
-    multipla.player = QMediaPlayer()
-
-    multipla.label = QLabel('Натисніть кнопку "Відкрити", щоб вибрати музичний файл', multipla)
-    multipla.btn_open = QPushButton('ВІДКРИТИ', multipla)
-    multipla.btn_play = QPushButton('ВІДТВОРИТИ', multipla)
-    multipla.btn_pause = QPushButton('ПАУЗА', multipla)
-    multipla.btn_stop = QPushButton('СТОП', multipla)
-
-
-
-    multipla.btn_open.clicked.connect(multipla.open_file)
-    multipla.btn_play.clicked.connect(multipla.play)
-    multipla.btn_pause.clicked.connect(multipla.pause)
-    multipla.btn_stop.clicked.connect(multipla.stop)
-
     def open_file():
         file_path, _ = QFileDialog.getOpenFileName(multipla, "Виберіть музичний файл", "", "MP3 files (*.mp3)")
         if file_path:
-            multipla.player.setMedia(QMediaContent(QUrl.fromLocalFile(file_path)))
-            multipla.label.setText(f'Вибраний файл: {file_path}')
+            player.setMedia(QMediaContent(QUrl.fromLocalFile(file_path)))
+            label.setText(f'Вибраний файл: {file_path}')
 
     def play():
-        multipla.player.play()
+        player.play()
 
     def pause():
-        multipla.player.pause()
+        player.pause()
 
     def stop():
-        multipla.player.stop()
+        player.stop()
+
+    multipla = QDialog()
+
+    multipla.setWindowTitle('Медіяплеєр')
+    multipla.setGeometry(100, 100, 300, 200)
+
+    player = QMediaPlayer()
+
+    label = QLabel('Натисніть кнопку "Відкрити", щоб вибрати музичний файл')
+    btn_open = QPushButton('ВІДКРИТИ')
+    btn_play = QPushButton('ВІДТВОРИТИ')
+    btn_pause = QPushButton('ПАУЗА')
+    btn_stop = QPushButton('СТОП')
+
+
+
+    btn_open.clicked.connect(open_file)
+    btn_play.clicked.connect(play)
+    btn_pause.clicked.connect(pause)
+    btn_stop.clicked.connect(stop)
+
+
 
 
     layout = QVBoxLayout()
-    layout.addWidget(multipla.label)
-    layout.addWidget(multipla.btn_open)
-    layout.addWidget(multipla.btn_play)
-    layout.addWidget(multipla.btn_pause)
-    layout.addWidget(multipla.btn_stop)
+    layout.addWidget(label)
+    layout.addWidget(btn_open)
+    layout.addWidget(btn_play)
+    layout.addWidget(btn_pause)
+    layout.addWidget(btn_stop)
 
-    def init_ui():
-        multipla.setWindowTitle('МУЗИЧНИЙ ПРОГРАВАЧ ЛАУНЧЕР')
-        multipla.setGeometry(100, 100, 300, 100)
-
-        multipla.music_player = MusicPlayer()
-
-        multipla.btn_open_player = QPushButton('Відкрити музичний програвач', multipla)
-        multipla.btn_open_player.clicked.connect(multipla.open_music_player)
-
-        layout = QVBoxLayout()
-        layout.addWidget(multipla.btn_open_player)
-        multipla.setLayout(layout)
 
     def open_music_player():
         multipla.music_player.show()
     multipla.setLayout(layout)
+    multipla.exec()
 
 
