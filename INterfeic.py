@@ -1,7 +1,7 @@
 import sys
 
 from PyQt5.QtCore import QUrl
-from PyQt5.QtWidgets import QApplication, QWidget, QVBoxLayout, QPushButton, QLabel, QFileDialog
+from PyQt5.QtWidgets import QApplication, QWidget, QVBoxLayout, QPushButton, QLabel, QFileDialog, QSlider
 from PyQt5.QtMultimedia import QMediaPlayer, QMediaContent
 
 class MusicPlayer(QWidget):
@@ -10,7 +10,7 @@ class MusicPlayer(QWidget):
         self.init_ui()
 
     def init_ui(self):
-        self.setWindowTitle('Медіяплеєр')
+        self.setWindowTitle('Медіаплеєр')
         self.setGeometry(100, 100, 300, 200)
 
         self.player = QMediaPlayer()
@@ -40,12 +40,11 @@ class MusicPlayer(QWidget):
         if file_path:
             self.player.setMedia(QMediaContent(QUrl.fromLocalFile(file_path)))
             self.label.setText(f'Вибраний файл: {file_path}')
-
     def play(self):
         self.player.play()
 
     def pause(self):
-        self.player.pause()
+       self.player.pause()
 
     def stop(self):
         self.player.stop()
@@ -70,6 +69,7 @@ class Launcher(QWidget):
 
     def open_music_player(self):
         self.music_player.show()
+
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)

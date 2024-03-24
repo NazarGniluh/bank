@@ -35,7 +35,9 @@ app.setStyleSheet(
 mainLine = QVBoxLayout()
 LOn = QHBoxLayout()
 Non = QHBoxLayout()
+
 window = QWidget()
+
 window.resize(100, 200)
 
 Open_Kalendar = QPushButton("КАЛЕНДАР")
@@ -48,6 +50,7 @@ mainLine.addWidget(text)
 
 LOn.addWidget(Open_Kalendar)
 LOn.addWidget(Open_Multiplayer)
+
 
 Open_Multiplayer.clicked.connect(Multiplayer.multi)
 Open_Kalendar.clicked.connect(Kalendar.kalen)
